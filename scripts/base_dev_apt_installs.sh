@@ -24,11 +24,9 @@ sudo apt-get update
 cprint "Adding additionnal deps..."
 sudo apt-get install git autoconf automake libtool make gcc g++ \
      libgmp-dev ncurses-dev libtinfo-dev python3 xz-utils build-essential \
-     libssl-dev libcurl4-gnutls-dev libexpat1-dev gettext unzip terminator \
-     firefox -y --allow-unauthenticated
+     libssl-dev libcurl4-gnutls-dev libexpat1-dev gettext unzip \
+     -y --allow-unauthenticated
 
-cprint "Adding vscode..."
-sudo apt-get install code -y --allow-unauthenticated
 
 cprint "Installing nodejs..."
 curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -

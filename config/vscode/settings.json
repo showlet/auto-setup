@@ -1,0 +1,20 @@
+{
+    "editor.lineNumbers": "relative",
+    "workbench.activityBar.visible": false,
+    "workbench.colorTheme": "Electron",
+    "window.menuBarVisibility": "toggle",
+    "explorer.openEditors.visible": 0,
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressUpdateNotice": true,
+        "suppressWelcomeNotice": true
+    },
+    "window.zoomLevel": 0,
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "'Hasklig'"
+}
