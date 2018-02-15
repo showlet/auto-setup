@@ -1,6 +1,7 @@
-chmod 755 src/*
+chmod 755 scripts/*
 
 # install list
 ############################
-./src/base.sh
-./src/fonts.sh
+./scripts/base_dev_apt_installs.sh
+./scripts/xfce_wallpaper_setter.sh
+./scripts/font_setter.sh
