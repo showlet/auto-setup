@@ -8,10 +8,11 @@ cprint() {
 }
 
 cprint "Installing terminator..."
-sudo apt-get install terminator
+sudo apt-get install terminator -y --allow-unauthenticated
 
 cprint "configuring terminator..."
 sudo cp ../config/terminator/config ~/.config/terminator/config
+sudo cp /config/terminator/config ~/.config/terminator/config
 
 if [ -e ~/.config/terminator/config ]
 then

@@ -8,3 +8,6 @@ chmod 755 scripts/*
 ./scripts/code_setup.sh
 ./scripts/xfce_wallpaper.sh
 ./scripts/xfce_theme.sh
+./scripts/xfce_keyboard.sh
+
+printf "Done."

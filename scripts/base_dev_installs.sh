@@ -8,6 +8,7 @@ cprint() {
 
 cprint "Updating..."
 sudo apt-get update
+sudo apt-get upgrade
 
 cprint "Adding base deps..."
 sudo apt-get install software-properties-common python-software-properties -y --allow-unauthenticated
@@ -19,13 +20,15 @@ sudo add-apt-repository multiverse
 sudo add-apt-repository restricted
 
 cprint "Updating..."
-sudo apt-get update
+sudo apt-get update -y
 
 cprint "Installing additionnal deps..."
-sudo apt-get install git autoconf automake libtool make gcc g++ \
+sudo apt-get install firefox git autoconf automake libtool make gcc g++ \
      libgmp-dev ncurses-dev libtinfo-dev python3 xz-utils build-essential \
      libssl-dev libcurl4-gnutls-dev libexpat1-dev gettext unzip \
-    git-core curl zlib1g-dev build-essential libssl-dev  \
+     -y --allow-unauthenticated
+
+sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev  \
     libreadline-dev libyaml-dev libsqlite3-dev sqlite3  \
     libxml2-dev libxslt1-dev libcurl4-openssl-dev  \
     libffi-dev \
@@ -48,5 +51,7 @@ cprint "Installing Haskell stack..."
 wget -qO- https://get.haskellstack.org/ | sh
 
 cprint "Installing Elm..."
-npm install -g elm
+sudo npm install -g elm
 
+
+cprint "Base dev install task complete..."
