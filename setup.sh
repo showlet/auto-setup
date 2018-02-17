@@ -9,5 +9,7 @@ chmod 755 scripts/*
 ./scripts/xfce_wallpaper.sh
 ./scripts/xfce_theme.sh
 ./scripts/xfce_keyboard.sh
+./scripts/xfce_panel.sh
+
 
 printf "Done."
