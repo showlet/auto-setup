@@ -22,8 +22,8 @@ sudo add-apt-repository restricted
 cprint "Updating..."
 sudo apt-get update -y
 
-cprint "Installing additionnal deps..."
-sudo apt-get install firefox git autoconf automake libtool make gcc g++ \
+cprint "Installing additionnal dev deps..."
+sudo apt-get install git autoconf automake libtool make gcc g++ \
      libgmp-dev ncurses-dev libtinfo-dev python3 xz-utils build-essential \
      libssl-dev libcurl4-gnutls-dev libexpat1-dev gettext unzip \
      -y --allow-unauthenticated
@@ -34,6 +34,7 @@ sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev  \
     libffi-dev \
      -y --allow-unauthenticated
 
+sudo apt-get install firefox vim nano -y --allow-unauthenticated
 
 cprint "Getting last versions of node and yarn..."
 curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
@@ -49,6 +50,7 @@ gem install rails
 
 cprint "NodeJS post installation..."
 sudo chown -R $(whoami) ~/.npm
+sudo chown -R $USER:$(id -gn $USER) /home/$USER/.config
 
 if [ -e /usr/lib/node_modules ]
 then
