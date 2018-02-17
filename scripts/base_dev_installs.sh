@@ -47,11 +47,26 @@ sudo apt-get install nodejs yarn ruby-full \
     -y --allow-unauthenticated
 gem install rails
 
+cprint "NodeJS post installation..."
+sudo chown -R $(whoami) ~/.npm
+
+if [ -e /usr/lib/node_modules ]
+then
+    sudo chown -R $(whoami) /usr/lib/node_modules
+else
+    sudo chown -R $(whoami) /usr/local/lib/node_modules
+fi
+
+cprint "Installing mongodb..."
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
+echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.6.list
+sudo apt-get update
+sudo apt-get install -y mongodb-org --allow-unauthenticated
+
 cprint "Installing Haskell stack..."
 wget -qO- https://get.haskellstack.org/ | sh
 
 cprint "Installing Elm..."
 sudo npm install -g elm
-
 
 cprint "Base dev install task complete..."
