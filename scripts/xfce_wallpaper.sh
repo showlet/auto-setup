@@ -1,4 +1,4 @@
-COLOR='\033[1;32m'
+COLOR='\033[0;34m'
 NC='\033[0m'
 DIR="wallpapers"
 
@@ -29,3 +29,5 @@ sudo wget https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-616505.jpg -
  
 # Choose wich wallpaper to display
 setwallpaper ~/$DIR/wallpaper2.jpg
+
+cprint "Done."

@@ -49,11 +49,13 @@ sudo apt-get install nodejs yarn ruby-full \
 gem install rails
 
 cprint "NodeJS post installation..."
-sudo chown -R $(whoami) ~/.npm
+sudo chown -R $(whoami) ~/.npm/
+sudo chown -R $USER /usr/lib/node_modules
 sudo chown -R $USER:$(id -gn $USER) /home/$USER/.config
 
-if [ -e /usr/lib/node_modules ]
+if [ -e /usr/lib ]
 then
+    sudo chown -R $(whoami) /usr/lib/
     sudo chown -R $(whoami) /usr/lib/node_modules
 else
     sudo chown -R $(whoami) /usr/local/lib/node_modules
@@ -71,4 +73,17 @@ wget -qO- https://get.haskellstack.org/ | sh
 cprint "Installing Elm..."
 sudo npm install -g elm
 
-cprint "Base dev install task complete..."
+cprint "Configuring vim..."
+sudo cp config/vim/.vimrc ~/.vimrc
+sudo cp ../config/vim/.vimrc ~/.vimrc
+
+mkdir ~/.vim/
+mkdir ~/.vim/colors
+
+wget \
+ https://raw.githubusercontent.com/nightsense/seagrey/master/colors/seagrey-dark.vim \
+  -O ~/.vim/colors/seagrey.vim
+
+cprint "Done."
+
+cprint "Base dev install task complete."

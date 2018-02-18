@@ -1,7 +1,8 @@
 ###################
 #
 # This script modifies the "default panel" settings
-# to set the default panel settings do the following
+# to set the default panel settings do the following.
+#
 # it removes the configs then starts it, you will be prompted
 # to chose the default settings or empty panel, chose default settings.
 # i reccomend having java installed for the coffee cup icon
@@ -43,7 +44,7 @@ xfconf-query -c xfce4-panel -p /plugins/plugin-6/show-frame -n -t bool -s false
 # separator
 xfconf-query -c xfce4-panel -p /plugins/plugin-13/style -n -t int -s 1
 
-cprint "Completed xfce4 panel setup, restarting panels."
+cprint "Done, restarting panels."
 
 xfce4-panel --restart
 
