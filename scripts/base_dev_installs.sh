@@ -49,16 +49,14 @@ sudo apt-get install nodejs yarn ruby-full \
 gem install rails
 
 cprint "NodeJS post installation..."
-sudo chown -R $(whoami) ~/.npm/
+sudo chown -R $USER ~/.npm/
 sudo chown -R $USER /usr/lib/node_modules
-sudo chown -R $USER:$(id -gn $USER) /home/$USER/.config
 
 if [ -e /usr/lib ]
 then
-    sudo chown -R $(whoami) /usr/lib/
-    sudo chown -R $(whoami) /usr/lib/node_modules
+    sudo chown -R $USER /usr/lib/node_modules
 else
-    sudo chown -R $(whoami) /usr/local/lib/node_modules
+    sudo chown -R $USER /usr/local/lib/node_modules
 fi
 
 cprint "Installing mongodb..."
