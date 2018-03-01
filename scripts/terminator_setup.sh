@@ -28,7 +28,7 @@ then
 fi
 
 sudo cp ../config/terminator/config ~/.config/terminator/config
-sudo cp config/terminator/config ~/.config/terminator/config
+yes | cp -rf config/terminator/config ~/.config/terminator/config
 
 if [ -e ~/.config/terminator/config ]
 then
