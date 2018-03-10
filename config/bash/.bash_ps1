@@ -1,0 +1,47 @@
+#!/bin/bash
+PRIMARY='\033[38;5;37m'
+SECONDARY='\033[38;5;129m'
+THIRD='\033[38;5;66m'
+TIME='\033[38;5;117m'
+NC='\033[0m'
+
+
+printName() {
+  NAME='showlet'
+  COUNTER=0
+
+  for i in {36..39} {39..36}
+  do  
+    pc "\033[38;5;${i}m" ${NAME:COUNTER:1}
+    COUNTER=$(expr $COUNTER + 1)
+  done
+}
+
+pc() {
+  COLOR=$1
+  TEXT=$2
+  printf "${COLOR}${TEXT}"
+}
+p() {
+  TEXT=$1
+  printf "${PRIMARY}${TEXT}${NC}"
+}
+s() {
+  TEXT=$1
+  printf "${SECONDARY}${TEXT}${NC}"
+}
+t() {
+  TEXT=$1
+  printf "${THIRD}${TEXT}${NC}"
+}
+time1() {
+  TEXT=$1
+  printf "${TIME}${TEXT}${NC}"
+}
+b() {
+  TEXT=$1
+  printf "${BLINK}${TEXT}"
+}
+
+export PS1='$(time1 "[\d \t]") $(printName) $( t "@" ) $(p "\w") 
+($(s $(git branch 2>/dev/null | grep "^*" | colrm 1 2))) $(t "~>") '

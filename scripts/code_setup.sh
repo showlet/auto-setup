@@ -34,6 +34,8 @@ code --install-extension vscodevim.vim
 code --install-extension eamodio.gitlens 
 
 cprint "Configuring vscode..."
+mkdir ~/.config/Code
+mkdir ~/.config/Code/User
 cp ../config/vscode/settings.json ~/.config/Code/User/settings.json
 
 if [ -e ~/.config/Code/User/settings.json ]
