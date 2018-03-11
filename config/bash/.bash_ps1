@@ -48,4 +48,4 @@ b() {
   printf "${BLINK}${TEXT}"
 }
 
-export PS1="\[\e[30;48;5;55m\]  ${NC} $(printName) $( t '@' ) $(printHost) $(p '\w') \r\n\[\e[30;48;5;37m\]  ${NC} $(time1 "$(date +"%a %d %T")")$(s '$(git branch 2>/dev/null | grep '^*' | colrm 1 1)' )$(t ' >>=') "
+export PS1="\[\e[30;48;5;55m\]  ${NC} $(printName) $( t '@' ) $(printHost) $(p '\w') \r\n\[\e[30;48;5;37m\]  ${NC} $(time1 "$(date +"%a %d %T")")$(s '$(git branch 2>/dev/null | grep '^*' | colrm 1 1)' )$(t ' λ') "
