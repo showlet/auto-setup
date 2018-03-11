@@ -1,18 +1,23 @@
 #!/bin/bash
-PRIMARY='\033[38;5;37m'
-SECONDARY='\033[38;5;129m'
-THIRD='\033[38;5;66m'
-TIME='\033[38;5;117m'
-NC='\033[0m'
+PRIMARY="\[\e[38;5;37m\]"
+SECONDARY='\[\033[38;5;129m\]'
+THIRD='\[\033[38;5;66m\]'
+TIME='\[\033[38;5;117m\]'
+NC='\[\033[0m\]'
 
 
 printName() {
-  NAME='showlet'
   COUNTER=0
-
-  for i in {36..39} {39..36}
-  do  
-    pc "\033[38;5;${i}m" ${NAME:COUNTER:1}
+  for i in {36..39} {39..36} ; do  
+    printf "\033[38;5;${i}m${USER:COUNTER:1}"
+    COUNTER=$(expr $COUNTER + 1)
+  done
+}
+printHost() {
+  COUNTER=0
+  for i in {240..244} {244..240} 
+ do  
+    printf "\033[38;5;${i}m${HOSTNAME:COUNTER:1}"
     COUNTER=$(expr $COUNTER + 1)
   done
 }
@@ -24,7 +29,7 @@ pc() {
 }
 p() {
   TEXT=$1
-  printf "${PRIMARY}${TEXT}${NC}"
+  printf "$PRIMARY${TEXT}${NC}"
 }
 s() {
   TEXT=$1
@@ -43,5 +48,4 @@ b() {
   printf "${BLINK}${TEXT}"
 }
 
-export PS1='$(time1 "[\d \t]") $(printName) $( t "@" ) $(p "\w") 
-($(s $(git branch 2>/dev/null | grep "^*" | colrm 1 2))) $(t "~>") '
+export PS1="\[\e[30;48;5;55m\]  ${NC} $(printName) $( t '@' ) $(printHost) $(p '\w') \r\n\[\e[30;48;5;37m\]  ${NC} $(time1 "$(date +"%a %d %T")")$(s '$(git branch 2>/dev/null | grep '^*' | colrm 1 1)' )$(t ' >>=') "
