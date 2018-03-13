@@ -8,14 +8,20 @@ NC='\[\033[0m\]'
 
 printName() {
   COUNTER=0
-  for i in {36..39} {39..36} ; do  
-    printf "\[\033[38;5;${i}m${USER:COUNTER:1}\]"
+  COLOR=35
+  for (( i=0; i<${#USER}; i++ )); do  
+    printf "\[\033[38;5;${COLOR}m${USER:COUNTER:1}\]"
     COUNTER=$(expr $COUNTER + 1)
+    if [ $((i%4)) == 0 ]
+    then 
+      COLOR=$(expr $COLOR + 1)
+    fi
+
   done
 }
 printHost() {
   COUNTER=0
-  for i in {240..244} {244..240} 
+  for i in {239..247} {247..239} 
  do  
     printf "\[\033[38;5;${i}m${HOSTNAME:COUNTER:1}\]"
     COUNTER=$(expr $COUNTER + 1)
