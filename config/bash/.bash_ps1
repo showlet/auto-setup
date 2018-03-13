@@ -1,7 +1,7 @@
 #!/bin/bash
 PRIMARY="\[\e[38;5;37m\]"
 SECONDARY='\[\033[38;5;129m\]'
-THIRD='\[\033[38;5;66m\]'
+THIRD='\[\033[38;5;214m\]'
 TIME='\[\033[38;5;117m\]'
 NC='\[\033[0m\]'
 
@@ -47,4 +47,4 @@ b() {
   printf "${BLINK}${TEXT}"
 }
 
-export PS1="\[\e[30;48;5;55m\]  ${NC} $(grad 35 $USER) $( t '@' ) $(grad 202 $HOSTNAME) $(p '\w') \r\n\[\e[30;48;5;37m\]  ${NC} \[\e[38;5;37m\]\d \t$(s '$(git branch 2>/dev/null | grep '^*' | colrm 1 1)' )$(t ' λ') "
+export PS1="\[\e[30;48;5;37m\]  ${NC} $(grad 35 $USER) $( t '@' ) $(grad 202 $HOSTNAME) $(p '\w') \r\n\[\e[30;48;5;37m\]  ${NC} \[\e[38;5;37m\]\d \t$(s '$(git branch 2>/dev/null | grep '^*' | colrm 1 1)' )$(t ' λ') "
