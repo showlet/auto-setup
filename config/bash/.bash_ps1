@@ -5,26 +5,19 @@ THIRD='\[\033[38;5;66m\]'
 TIME='\[\033[38;5;117m\]'
 NC='\[\033[0m\]'
 
-
-printName() {
+grad() {
   COUNTER=0
-  COLOR=35
-  for (( i=0; i<${#USER}; i++ )); do  
-    printf "\[\033[38;5;${COLOR}m${USER:COUNTER:1}\]"
+  COLOR=$1
+  TXT=$2
+  MOD="$(($((${#TXT}/6))*2))"
+  for (( i=0; i<${#TXT}; i++ )); do  
+    printf "\[\033[38;5;${COLOR}m${TXT:COUNTER:1}\]"
     COUNTER=$(expr $COUNTER + 1)
-    if [ $((i%4)) == 0 ]
+    if [ $((i%$MOD)) == 0 ]
     then 
       COLOR=$(expr $COLOR + 1)
     fi
 
-  done
-}
-printHost() {
-  COUNTER=0
-  for i in {239..247} {247..239} 
- do  
-    printf "\[\033[38;5;${i}m${HOSTNAME:COUNTER:1}\]"
-    COUNTER=$(expr $COUNTER + 1)
   done
 }
 
@@ -54,4 +47,4 @@ b() {
   printf "${BLINK}${TEXT}"
 }
 
-export PS1="\[\e[30;48;5;55m\]  ${NC} $(printName) $( t '@' ) $(printHost) $(p '\w') \r\n\[\e[30;48;5;37m\]  ${NC} \[\e[38;5;37m\]\d \t$(s '$(git branch 2>/dev/null | grep '^*' | colrm 1 1)' )$(t ' λ') "
+export PS1="\[\e[30;48;5;55m\]  ${NC} $(grad 35 $USER) $( t '@' ) $(grad 202 $HOSTNAME) $(p '\w') \r\n\[\e[30;48;5;37m\]  ${NC} \[\e[38;5;37m\]\d \t$(s '$(git branch 2>/dev/null | grep '^*' | colrm 1 1)' )$(t ' λ') "
