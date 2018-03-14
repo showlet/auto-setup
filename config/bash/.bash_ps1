@@ -11,7 +11,7 @@ grad() {
   TXT=$2
   MOD="$(($((${#TXT}/6))*2))"
   for (( i=0; i<${#TXT}; i++ )); do  
-    printf "\[\033[38;5;${COLOR}m${TXT:COUNTER:1}\]"
+    printf "\[\033[38;5;${COLOR}m\]${TXT:COUNTER:1}"
     COUNTER=$(expr $COUNTER + 1)
     if [ $((i%$MOD)) == 0 ]
     then 
@@ -47,4 +47,4 @@ b() {
   printf "${BLINK}${TEXT}"
 }
 
-export PS1="\[\e[30;48;5;37m\]  ${NC} $(grad 35 $USER) $( t '@' ) $(grad 202 $HOSTNAME) $(p '\w') \r\n\[\e[30;48;5;37m\]  ${NC} \[\e[38;5;37m\]\d \t$(s '$(git branch 2>/dev/null | grep '^*' | colrm 1 1)' )$(t ' λ') "
+export PS1="\[\e[30;48;5;37m\]  ${NC} $(grad 35 $USER) $( t '@' ) $(grad 202 $HOSTNAME) $(p '\w') \r\n\[\e[30;48;5;37m\]  ${NC} \[\e[38;5;37m\]\d \t$( s '$(git branch 2>/dev/null | grep '^*' | colrm 1 1)' )$(t ' λ') "
