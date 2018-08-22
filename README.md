@@ -1,5 +1,5 @@
-# Quick devbox
-collection of scripts that configure different parts of my development environment.
+# dev-setup
+collection of scripts that configure different parts of the development environment i use.
 
 
 ### How
